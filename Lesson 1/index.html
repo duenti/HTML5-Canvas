@@ -1,0 +1,39 @@
+<!--
+-Criando Canvas
+-Carregando uma imagem
+-->
+<!DOCTYPE HTML>
+
+<html>
+<head></head>
+<body>
+	<canvas id="c" width="350" height="350"></canvas>
+
+	<script type="text/javascript">
+		var c = document.querySelector('#c');
+		var ctx = c.getContext('2d');
+
+		var image = new Image();
+
+		//JS carrega imagens assincrona, por isso do evento onLoad
+		image.onload = function(){
+			console.log(image);
+
+			ctx.drawImage(image,0,0,c.width,c.height);
+
+			ctx.font = '36pt Impact';
+			ctx.textAlign = 'center';
+			ctx.fillStyle = 'white';
+			ctx.fillText('CANVAS MEMES!',c.width/2,40);
+
+			ctx.strokeStyle = 'black';
+			ctx.lineWidth = 3;
+			ctx.strokeText('CANVAS MEMES!',c.width/2,40);
+
+		}
+
+		image.src = 'http://media.npr.org/music/lists/brazilpsych/satwa200-8315153fd4d57f1fbeab82210f3732a10292dd60-s200-c15.jpg';
+		//console.log(image);
+	</script>
+</body>
+</html>
